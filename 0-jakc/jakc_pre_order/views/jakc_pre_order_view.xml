@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="jakc_sale_pre_order_tree_view">
+            <field name="name">jakc.sale.pre.order.tree.view</field>
+            <field name="model">sale.pre.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="jakc_sale_pre_order_form_view">
+            <field name="name">jakc.sale.pre.order.form.view</field>
+            <field name="model">sale.pre.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="trans_open" string="Open" states="draft" type="object" class="oe-highlight"/>
+                        <button name="trans_close" string="Close" states="open" type="object" class="oe-highlight"/>
+                        <button name="trans_next" string="Next" states="open" type="object" class="oe-highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                         <group>
+                             <field name="name"/>
+                             <field name="date_start"/>
+                             <field name="date_end"/>
+                             <field name="offset"/>
+                        </group>
+                        <notebook>
+                            <page string="Lines">
+                                <field name="sale_pre_order_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="product_uom_qty"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="act_sale_pre_order" model="ir.actions.act_window">
+            <field name="name">Pre Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.pre.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="act_sale_pre_order" id="menu_action_sale_pre_order" parent="menu_pre_order_master" sequence="1"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<openerp>
+    <data>
+
+        <menuitem name="Pre-Order"
+            id="menu_pre_order_root"
+            icon="fa-archive"
+            web_icon="stock,static/description/icon.png"
+            sequence="30"/>
+
+        <menuitem id="menu_pre_order_master" name="Master" parent="menu_pre_order_root" sequence="1"/>
+
+        <menuitem id="menu_pre_order_transaction" name="Transaction" parent="menu_pre_order_root" sequence="2"/>
+
+        <menuitem id="menu_pre_order_report" name="Report" parent="menu_pre_order_root" sequence="3"/>
+
+        <menuitem id="menu_pre_order_import" name="Import" parent="menu_pre_order_root" sequence="4"/>
+
+        <menuitem id="menu_pre_order_export" name="Export" parent="menu_pre_order_root" sequence="5"/>
+
+    </data>
+</openerp>

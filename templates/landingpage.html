@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Show</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        console.log('Document Ready');
+        var socket = io.connect('http://localhost:5000');
+        socket.on('connect', function(){
+            socket.send('User has connected');
+        });
+        socket.on('message', function(msg){
+            $('#productpage').append('
+
+
+            ')
+            console.log('Received Message');
+        });
+    });
+</script>
+
+<div id="productpage" class="container">
+    <div class="col-xs-12 col-md-6">
+        <!-- First product box start here-->
+        <div class="prod-info-main prod-wrap clearfix">
+            <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="product-image">
+                            <img src="images/products/p4.png" class="img-responsive">
+                            <span class="tag2 hot">
+                                HOT
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="product-deatil">
+                            <h5 class="name">
+                                <a href="#">
+                                    Product Code/Name here
+                                </a>
+                                <a href="#">
+                                    <span>Product Category</span>
+                                </a>
+
+                            </h5>
+                            <p class="price-container">
+                                <span>$199</span>
+                            </p>
+                            <span class="tag1"></span>
+                    </div>
+                    <div class="description">
+                        <p>A Short product description here </p>
+                    </div>
+                    <div class="product-info smart-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ProductModal">More Info</button>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rating">Rating:
+                                    <label for="stars-rating-5"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-4"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-3"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+                                    <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end product -->
+    </div>
+</div>
+
+<div id="ProductModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- First product box start here-->
+        <div class="prod-info-main prod-wrap clearfix">
+            <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="product-image">
+                            <img src="images/products/p4.png" class="img-responsive">
+                            <span class="tag2 hot">
+                                HOT
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="product-deatil">
+                            <h5 class="name">
+                                <a href="#">
+                                    Product Code/Name here
+                                </a>
+                                <a href="#">
+                                    <span>Product Category</span>
+                                </a>
+
+                            </h5>
+                            <p class="price-container">
+                                <span>$199</span>
+                            </p>
+                            <span class="tag1"></span>
+                    </div>
+                    <div class="description">
+                        <p>A Short product description here </p>
+                    </div>
+                    <div class="product-info smart-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ProductModal">More Info</button>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="rating">Rating:
+                                    <label for="stars-rating-5"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-4"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-3"><i class="fa fa-star text-danger"></i></label>
+                                    <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
+                                    <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end product -->
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
